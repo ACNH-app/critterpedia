@@ -6,26 +6,7 @@ const TYPE_LABELS = {
   sea: "해산물",
 };
 
-const elements = {
-  heroNowText: document.getElementById("heroNowText"),
-  heroMetaText: document.getElementById("heroMetaText"),
-  summaryGrid: document.getElementById("summaryGrid"),
-  resetStorageButton: document.getElementById("resetStorageButton"),
-  typeTabs: Array.from(document.querySelectorAll("#typeTabs [data-type]")),
-  searchInput: document.getElementById("searchInput"),
-  hemisphereSelect: document.getElementById("hemisphereSelect"),
-  sortSelect: document.getElementById("sortSelect"),
-  ownedFilterSelect: document.getElementById("ownedFilterSelect"),
-  donatedFilterSelect: document.getElementById("donatedFilterSelect"),
-  currentOnlyCheckbox: document.getElementById("currentOnlyCheckbox"),
-  activeFilters: document.getElementById("activeFilters"),
-  listMeta: document.getElementById("listMeta"),
-  critterGrid: document.getElementById("critterGrid"),
-  detailBackdrop: document.getElementById("detailBackdrop"),
-  detailPanel: document.getElementById("detailPanel"),
-  detailContent: document.getElementById("detailContent"),
-  closeDetailButton: document.getElementById("closeDetailButton"),
-};
+let elements;
 
 const appState = {
   generatedAt: "",
@@ -51,6 +32,27 @@ init().catch((error) => {
 });
 
 async function init() {
+  elements = {
+    heroNowText: document.getElementById("heroNowText"),
+    heroMetaText: document.getElementById("heroMetaText"),
+    summaryGrid: document.getElementById("summaryGrid"),
+    resetStorageButton: document.getElementById("resetStorageButton"),
+    typeTabs: Array.from(document.querySelectorAll("#typeTabs [data-type]")),
+    searchInput: document.getElementById("searchInput"),
+    hemisphereSelect: document.getElementById("hemisphereSelect"),
+    sortSelect: document.getElementById("sortSelect"),
+    ownedFilterSelect: document.getElementById("ownedFilterSelect"),
+    donatedFilterSelect: document.getElementById("donatedFilterSelect"),
+    currentOnlyCheckbox: document.getElementById("currentOnlyCheckbox"),
+    activeFilters: document.getElementById("activeFilters"),
+    listMeta: document.getElementById("listMeta"),
+    critterGrid: document.getElementById("critterGrid"),
+    detailBackdrop: document.getElementById("detailBackdrop"),
+    detailPanel: document.getElementById("detailPanel"),
+    detailContent: document.getElementById("detailContent"),
+    closeDetailButton: document.getElementById("closeDetailButton"),
+  };
+
   bindEvents();
   applyStoredFilterDefaults();
   updateNowText();
