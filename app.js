@@ -32,25 +32,34 @@ init().catch((error) => {
 });
 
 async function init() {
+  const getElement = (id) => {
+    const element = document.getElementById(id);
+    if (!element) throw new Error(`Missing DOM element: ${id}`);
+    return element;
+  };
+
+  const typeTabs = Array.from(document.querySelectorAll("#typeTabs [data-type]"));
+  if (!typeTabs.length) throw new Error("Missing DOM elements: tab buttons inside #typeTabs");
+
   elements = {
-    heroNowText: document.getElementById("heroNowText"),
-    heroMetaText: document.getElementById("heroMetaText"),
-    summaryGrid: document.getElementById("summaryGrid"),
-    resetStorageButton: document.getElementById("resetStorageButton"),
-    typeTabs: Array.from(document.querySelectorAll("#typeTabs [data-type]")),
-    searchInput: document.getElementById("searchInput"),
-    hemisphereSelect: document.getElementById("hemisphereSelect"),
-    sortSelect: document.getElementById("sortSelect"),
-    ownedFilterSelect: document.getElementById("ownedFilterSelect"),
-    donatedFilterSelect: document.getElementById("donatedFilterSelect"),
-    currentOnlyCheckbox: document.getElementById("currentOnlyCheckbox"),
-    activeFilters: document.getElementById("activeFilters"),
-    listMeta: document.getElementById("listMeta"),
-    critterGrid: document.getElementById("critterGrid"),
-    detailBackdrop: document.getElementById("detailBackdrop"),
-    detailPanel: document.getElementById("detailPanel"),
-    detailContent: document.getElementById("detailContent"),
-    closeDetailButton: document.getElementById("closeDetailButton"),
+    heroNowText: getElement("heroNowText"),
+    heroMetaText: getElement("heroMetaText"),
+    summaryGrid: getElement("summaryGrid"),
+    resetStorageButton: getElement("resetStorageButton"),
+    typeTabs,
+    searchInput: getElement("searchInput"),
+    hemisphereSelect: getElement("hemisphereSelect"),
+    sortSelect: getElement("sortSelect"),
+    ownedFilterSelect: getElement("ownedFilterSelect"),
+    donatedFilterSelect: getElement("donatedFilterSelect"),
+    currentOnlyCheckbox: getElement("currentOnlyCheckbox"),
+    activeFilters: getElement("activeFilters"),
+    listMeta: getElement("listMeta"),
+    critterGrid: getElement("critterGrid"),
+    detailBackdrop: getElement("detailBackdrop"),
+    detailPanel: getElement("detailPanel"),
+    detailContent: getElement("detailContent"),
+    closeDetailButton: getElement("closeDetailButton"),
   };
 
   bindEvents();
