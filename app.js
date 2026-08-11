@@ -54,7 +54,11 @@ async function init() {
   bindEvents();
   applyStoredFilterDefaults();
   updateNowText();
-  const response = await fetch("./data/critters.json");
+  const dataUrl = new URL("./data/critters.json", import.meta.url);
+  const response = await fetch(dataUrl);
+  if (!response.ok) {
+    throw new Error(`Failed to load data: ${response.status} ${response.statusText}`);
+  }
   const payload = await response.json();
   appState.generatedAt = String(payload?.generatedAt || "");
   appState.critters = Array.isArray(payload?.items) ? payload.items : [];
