@@ -46,7 +46,7 @@ const appState = {
 
 init().catch((error) => {
   console.error(error);
-  elements.heroMetaText.textContent = "데이터를 불러오지 못했습니다.";
+  elements.heroMetaText.textContent = `데이터를 불러오지 못했습니다: ${error.message}`;
   elements.critterGrid.innerHTML = '<div class="empty-state">생물 데이터를 불러오지 못했습니다.</div>';
 });
 
