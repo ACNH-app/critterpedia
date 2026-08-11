@@ -16,25 +16,20 @@
             `nookipedia-api`의 생물 데이터를 정적 스냅샷으로 가져와 GitHub Pages에서 바로 배포할 수 있게 만든
             독립형 도감입니다. 잡은 생물과 박물관 기증 상태는 브라우저에만 저장됩니다.
           </p>
+
+          <div class="hero-meta">
+            <div>
+              <p>현재 기준</p>
+              <strong id="heroNowText">-</strong>
+            </div>
+            <span id="heroMetaText">데이터 로딩 중...</span>
+          </div>
+
+          <div id="summaryGrid" class="summary-grid hero-summary-grid"></div>
         </section>
-        <aside class="hero-note">
-          <p>현재 기준</p>
-          <strong id="heroNowText">-</strong>
-          <span id="heroMetaText">데이터 로딩 중...</span>
-        </aside>
       </header>
 
       <main class="layout">
-        <section class="panel">
-          <div class="panel-head">
-            <div>
-              <h2>진행 현황</h2>
-              <p class="panel-subtext">잡은 여부와 박물관 기증 여부를 로컬에 저장합니다.</p>
-            </div>
-            <button id="resetStorageButton" type="button" class="ghost-button">체크 상태 초기화</button>
-          </div>
-          <div id="summaryGrid" class="summary-grid"></div>
-        </section>
 
         <section class="panel">
           <div class="panel-head">
